@@ -1,17 +1,23 @@
 let turn = "X";
 let isWon = false;
+
 let a = document.querySelectorAll(".myBox");
+
+// adding event listener
 for (let i = 0; i < a.length; i++) {
   a[i].addEventListener("click", () => {
     a[i].innerHTML = changeTurn();
     checkWin();
+    
     if (isWon == true) {
       document.querySelector(".result").innerText = turn + " won";
       winAnim();
     }
+    
     if (isWon == false && i == 8) {
       document.querySelector(".result").innerText = "It's a draw";
     }
+    
     document.querySelector(".turnDisplay").innerText = turn + " turn";
     console.log(a[i].innerHTML);
   });
@@ -22,7 +28,9 @@ let changeTurn = () => {
   if (turn === "X") {
     turn = "O";
     return turn;
-  } else {
+  } 
+  
+  else {
     turn = "X";
     return turn;
   }
@@ -49,56 +57,72 @@ const checkWin = () => {
     ) {
       // document.querySelector(".result").innerText = turn +" won"
       isWon = true;
-    } else if (
+    } 
+    
+    else if (
       a[3].innerHTML === a[4].innerHTML &&
       a[4].innerHTML === a[5].innerHTML &&
       a[3].innerHTML !== ""
     ) {
       // document.querySelector(".result").innerText = turn +" won"
       isWon = true;
-    } else if (
+    } 
+    
+    else if (
       a[6].innerHTML === a[7].innerHTML &&
       a[7].innerHTML === a[8].innerHTML &&
       a[6].innerHTML !== ""
     ) {
       // document.querySelector(".result").innerText = turn +" won"
       isWon = true;
-    } else if (
+    } 
+    
+    else if (
       a[0].innerHTML === a[3].innerHTML &&
       a[3].innerHTML === a[6].innerHTML &&
       a[0].innerHTML !== ""
     ) {
       // document.querySelector(".result").innerText = turn +" won"
       isWon = true;
-    } else if (
+    } 
+    
+    else if (
       a[1].innerHTML === a[4].innerHTML &&
       a[4].innerHTML === a[7].innerHTML &&
       a[4].innerHTML !== ""
     ) {
       // document.querySelector(".result").innerText = turn +" won"
       isWon = true;
-    } else if (
+    } 
+    
+    else if (
       a[2].innerHTML === a[5].innerHTML &&
       a[5].innerHTML === a[8].innerHTML &&
       a[2].innerHTML !== ""
     ) {
       // document.querySelector(".result").innerText = turn +" won"
       isWon = true;
-    } else if (
+    } 
+    
+    else if (
       a[0].innerHTML === a[4].innerHTML &&
       a[4].innerHTML === a[8].innerHTML &&
       a[0].innerHTML !== ""
     ) {
       // document.querySelector(".result").innerText = turn +" won"
       isWon = true;
-    } else if (
+    } 
+    
+    else if (
       a[2].innerHTML === a[4].innerHTML &&
       a[4].innerHTML === a[6].innerHTML &&
       a[2].innerHTML !== ""
     ) {
       // document.querySelector(".result").innerText = turn +" won"
       isWon = true;
-    } else {
+    } 
+    
+    else {
       // document.querySelector(".result").innerText = "It's a draw"
     }
   }
